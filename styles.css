@@ -1,0 +1,123 @@
+body {
+    background-color: black;
+    color: antiquewhite;
+    font-family: IQOS;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: xxx-large;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+canvas {
+    border: antiquewhite ridge 6px;
+    display: block;
+    margin: 20px auto;
+}
+
+.resetDiv {
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-40%);
+    margin-top: 20px;
+
+}
+
+button {
+    border: antiquewhite solid 2px;
+    width: auto;
+    height: auto;
+    outline: none;
+    font-size: 1.5em;
+    margin: 0px 25px 25px 0px;
+    background-color: black;
+    color: antiquewhite;
+    text-align: center;
+    font-family: IQOS;
+    cursor: pointer;
+    transition: background-color 1s, color 1s;
+}
+
+button:hover {
+
+    background: antiquewhite;
+    color: black;
+    font-family: IQOS;
+}
+
+.selected {
+    background: antiquewhite;
+    color: black;
+}
+
+#chars-container {
+    display: grid;
+    grid-template-columns: repeat(9,40px);
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-left: 38.5%;
+    justify-items: center;
+    width: auto;
+    height: auto;
+    position: inherit;
+
+}
+
+
+
+.char {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid antiquewhite;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    background-color: grey;
+    color: whitesmoke;
+    transition: background-color 1s, color 1s;
+    margin:0;
+}
+
+.char:hover {
+    background-color: darkolivegreen;
+
+}
+
+.char:disabled {
+    background-color: aquamarine;
+    cursor: not-allowed;
+    color: black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid antiquewhite;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin:0;
+}
+
+#word-container {
+    font-size: 2em;
+    letter-spacing: 0.5em;
+    margin-bottom: 20px;
+    color: antiquewhite;
+}
+
+#message{
+    font-size: 30px;
+    margin-bottom: 30px;
+
+}
