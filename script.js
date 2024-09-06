@@ -6,15 +6,16 @@ class Hangman {
     }
 
     async resetGame() {
+
         this.word = await this.getRandomWord()
         this.guessedLetters = new Set();
         this.mistakes = 0;
+
+
         this.update();
         this.clearCanvas();
         this.drawRod();
         this.showMSG('', 'black')
-
-
 
 
     }
@@ -27,10 +28,13 @@ class Hangman {
         this.ctx = this.canvas.getContext('2d');
         this.charContainer.innerHTML = '';
 
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVVWXYZ'.split('');
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
         chars.forEach(char => {
             const charButton = document.createElement('div');
+
+
             charButton.className = 'char';
+
             charButton.textContent = char;
             charButton.addEventListener('click', () => {
                 this.handleGuess(charButton)
@@ -45,6 +49,7 @@ class Hangman {
 
     update() {
         this.wordContainer.innerHTML = this.word.split('').map(letter => this.guessedLetters.has((letter)) ? letter : '-').join(' ');
+
     }
 
     handleGuess(charButton) {
@@ -53,15 +58,17 @@ class Hangman {
             return;
         }
         this.guessedLetters.add(letter);
-        charButton.classList.add('disabled');
+        charButton.disabled=true;
+
         if (this.word.includes(letter)) {
             this.update();
             if (this.checkWin()) {
                 this.showMSG("You Win", 'green')
 
-                //TODO: sidble keyboard
             }
         } else {
+
+
             this.mistakes++;
             this.animatedrawMan();
             if (this.mistakes === this.MaxNumberOfMistakes) {
@@ -80,7 +87,9 @@ class Hangman {
         try {
             const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
             const data = await response.json();
+            console.log(data[0]);
             return data[0].toUpperCase();
+
         } catch (error) {
             console.error('Error while fetching the word ', error);
             return 'DEFAULT';
@@ -171,15 +180,15 @@ class Hangman {
     }
 
     checkWin() {
-        return;
-        this.word.split('').every(letter => this.guessedLetters.has(letter));
+
+        return this.word.split('').every(letter => this.guessedLetters.has(letter));
+
     }
 
     showMSG(message, color) {
         this.messageContainer.textContent = message;
         this.messageContainer.style.color = color;
     }
-
 
 
 }

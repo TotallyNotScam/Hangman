@@ -60,14 +60,16 @@ button:hover {
 
 #chars-container {
     display: grid;
-    grid-template-columns: repeat(9,40px);
+    grid-template-columns: repeat(13,40px);
     gap: 10px;
     margin-bottom: 20px;
-    margin-left: 38.5%;
+    margin-left: 33.25%;
+
     justify-items: center;
     width: auto;
     height: auto;
     position: inherit;
+
 
 }
 
@@ -94,8 +96,8 @@ button:hover {
 
 }
 
-.char:disabled {
-    background-color: aquamarine;
+.char:disabled{
+    background-color: antiquewhite;
     cursor: not-allowed;
     color: black;
     width: 40px;
